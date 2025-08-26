@@ -1,0 +1,14 @@
+<RCC>
+    <qresource prefix="/">
+        <file>Resources/title/mini.svg</file>
+        <file>Resources/title/setting.svg</file>
+        <file>Resources/title/max_line.svg</file>
+        <file>Resources/title/close.svg</file>
+        <file>Resources/title/back.svg</file>
+        <file>Resources/title/pifu.svg</file>
+        <file>Resources/title/search.svg</file>
+        <file>Resources/title/linsen.svg</file>
+        <file>Resources/title/message.svg</file>
+        <file>Resources/title/min.svg</file>
+    </qresource>
+</RCC>
