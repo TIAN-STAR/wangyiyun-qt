@@ -1,5 +1,10 @@
 <RCC>
     <qresource prefix="/">
         <file>main.qml</file>
+        <file>src/leftPage/LeftPage.qml</file>
+        <file>src/rightPage/RightPage.qml</file>
+        <file>src/playMusic/PlayMusic.qml</file>
+        <file>src/commonUI/WYYWindow.qml</file>
+        <file>src/title/MinAndMax.qml</file>
     </qresource>
 </RCC>

@@ -5,10 +5,15 @@
         <file>Resources/title/max_line.svg</file>
         <file>Resources/title/close.svg</file>
         <file>Resources/title/back.svg</file>
-        <file>Resources/title/pifu.svg</file>
+        <file>Resources/title/skin.svg</file>
         <file>Resources/title/search.svg</file>
         <file>Resources/title/linsen.svg</file>
         <file>Resources/title/message.svg</file>
         <file>Resources/title/min.svg</file>
+        <file>Resources/title/logo1.svg</file>
+        <file>Resources/title/logo2.svg</file>
+        <file>Resources/title/max_line2.svg</file>
+        <file>Resources/title/userlogo.svg</file>
+        <file>Resources/title/upselect.svg</file>
     </qresource>
 </RCC>

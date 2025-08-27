@@ -1,47 +1,34 @@
 ﻿import QtQuick 2.15
 import QtQuick.Window 2.15
+import QtGraphicalEffects 1.15
+import "./src/leftPage"
+import "./src/rightPage"
+import "./src/playMusic"
+import "./src/commonUI"
 
-Window {
+WYYWindow {
     id: window
-    width: 640
-    height: 480
-    visible: true
-    title: qsTr("Hello World")
-    flags: Qt.FramelessWindowHint | Qt.Window |Qt.WindowsSystemMenuHint |
-           Qt.WindowMaximizeButtonHint |Qt.WindowMinimizeButtonHint
-    Rectangle{
+    width: 1280
+    height: 960
+    LeftPage{
         id:leftRect
         width: 204
         anchors.top:parent.top
         anchors.bottom:bottomRect.top
         color: "#f0f3f6"
     }
-    Rectangle{
+    RightPage{
         id:rightRect
         anchors.top:parent.top
         anchors.bottom:bottomRect.top
         anchors.left: leftRect.right
         anchors.right: parent.right
         color: "#f7f9fc"
-        Rectangle{
-            height:70
-            anchors.top:parent.top
-            anchors.right: parent.right
-            anchors.left: parent.left
-            Row{
-
-                Image {
-                    id:
-                    source: "file"
-                }
-            }
-        }
-
-
     }
-    Rectangle{
+
+    PlayMusic{
         id:bottomRect
-        anchors.top: leftRect
+
         height:80
         anchors.left: parent.left
         anchors.bottom: parent.bottom
@@ -54,18 +41,7 @@ Window {
 
         }
     }
-    MouseArea{
-        anchors.fill:parent
-        property point clickPos:"0,0"
-        onPressed: function(mouse){
-            clickPos = Qt.point(mouse.x,mouse.y)
-            console.log(clickPos)
-        }
-        onPositionChanged: function(mouse){
-            let delta = Qt.point(mouse.x-clickPos.x,mouse.y-clickPos.y)
-            window.x += delta.x
-            window.y += delta.y
-        }
 
-    }
+
+
 }
