@@ -15,5 +15,7 @@
         <file>Resources/title/max_line2.svg</file>
         <file>Resources/title/userlogo.svg</file>
         <file>Resources/title/upselect.svg</file>
+        <file>Resources/title/linsen1.svg</file>
+        <file>Resources/title/fire.svg</file>
     </qresource>
 </RCC>

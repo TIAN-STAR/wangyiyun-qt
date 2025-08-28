@@ -37,7 +37,7 @@ WYYWindow {
             orientation:Gradient.Horizontal
             GradientStop { position: 0.0;color: "#fcfcfd"}
             GradientStop { position: 0.5;color: "#fcfcfc"}
-            GradientStop { position: 0.1;color: "#fdfefe"}
+            GradientStop { position: 1.0;color: "#fdfefe"}
 
         }
     }

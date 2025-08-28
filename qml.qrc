@@ -6,5 +6,6 @@
         <file>src/playMusic/PlayMusic.qml</file>
         <file>src/commonUI/WYYWindow.qml</file>
         <file>src/title/MinAndMax.qml</file>
+        <file>src/title/UserCommonSetting.qml</file>
     </qresource>
 </RCC>

@@ -1,228 +1,181 @@
 import QtQuick 2.15
 import QtQuick.Controls 2.15
 import QtGraphicalEffects 1.15
+import QtQuick.Layouts 1.15
 import "../title"
+
 Rectangle{
     id:rightRect
-    //登录
+    //搜索框
     Row{
-        id:othersRow
+        id:searchRow
+        anchors.left: parent.left
+        anchors.leftMargin: 36
+        anchors.verticalCenter: othersRo.verticalCenter
+        spacing: 20
+        Rectangle{
+            id: backForwardRect
+            width:35
+            height:40
+            color:"#f7f9fc"
+            border.width: 1
+            border.color: "#f1f3f6"
+            Image{
+                anchors.centerIn: parent
+                width: parent.height/1.5
+                source: "qrc:/Resources/title/back.svg"
+                fillMode :Image.PreserveAspectFit
+                opacity:0.3
+            }
+        }
+        TextField{
+            id:searchTextField
+            height:backForwardRect.height
+            width:320
 
+            leftPadding: 60
+            // 设置背景圆角
+            background: Rectangle {
+                id: bgRect
+                anchors.fill: parent
+                radius: 8
+                gradient: Gradient{
+                    orientation:Gradient.Horizontal
+                    GradientStop { position: 0;color: "#dae6fa"}
+                    GradientStop { position: 1;color: "#f7e3f1"}
+
+                }
+                Rectangle{
+                    anchors.fill: parent
+                    anchors.topMargin: 1
+                    anchors.leftMargin: 1
+                    anchors.rightMargin: 2
+                    anchors.bottomMargin: 2
+                    radius: 8
+                    gradient: Gradient{
+                        orientation:Gradient.Horizontal
+                        GradientStop { position: 0;color: "#ebf0fb"}
+                        GradientStop { position: 1;color: "#f7eff7"}
+
+                    }
+
+                }
+
+
+                RowLayout {
+                    Layout.fillWidth: true    // 宽度与父组件一致
+                    Layout.fillHeight: true   // 高度与父组件一致
+
+                    anchors.verticalCenter: parent.verticalCenter
+
+                    spacing: 10
+                    // 最左边的空白占位元素，宽度 40 像素
+                    Item {
+                        Layout.preferredWidth: 15  // 固定宽度 40 像素
+                        Layout.preferredHeight: 0  // 高度不占用空间（仅占位宽度）
+                    }
+                    Image{
+
+                        id:searchIcon
+                        Layout.preferredWidth: bgRect.height/1.7
+
+                        // anchors.leftMargin: 40
+                        fillMode :Image.PreserveAspectFit
+                        opacity:0.4
+                        Layout.alignment: Qt.AlignVCenter
+                        source: "qrc:/Resources/title/search.svg"
+                    }
+
+                    Image {
+
+                        Layout.preferredWidth: bgRect.height/1.7
+                        fillMode :Image.PreserveAspectFit
+                        opacity:0.4
+                        source: "qrc:/Resources/title/fire.svg"
+                        Layout.alignment: Qt.AlignVCenter
+
+                    }
+
+                    Text {
+                        Layout.leftMargin:-10
+                        text: "大家都在搜"
+                        Layout.alignment: Qt.AlignVCenter
+                        color: "#A9A9A9"
+                        font {
+                            pixelSize: 18
+                            family: "PingFang SC, Microsoft YaHei, Hiragino Sans GB, Heiti SC, Noto Sans CJK SC, sans-serif"
+                        }
+                    }
+
+                }
+
+
+            }
+
+        }
+        Rectangle{
+            id: soundHoundRect
+            radius: 8
+            height:backForwardRect.height
+            width:height
+            gradient: Gradient{
+                orientation:Gradient.Horizontal
+                GradientStop { position: 0;color: "#f2e5f2"}
+                GradientStop { position: 1;color: "#f7e3e2"}
+
+            }
+            Rectangle{
+                anchors.fill: parent
+                anchors.topMargin: 1
+                anchors.leftMargin: 1
+                anchors.rightMargin: 2
+                anchors.bottomMargin: 2
+                radius: 8
+                gradient: Gradient{
+                    orientation:Gradient.Horizontal
+                    GradientStop { position: 0;color: "#f5f0fa"}
+                    GradientStop { position: 1;color: "#f7eff7"}
+
+                }
+
+            }
+
+
+            Image{
+                anchors.centerIn: parent
+                width: parent.height/1.8
+                source: "qrc:/Resources/title/linsen1.svg"
+                fillMode :Image.PreserveAspectFit
+                opacity:0.5
+                MouseArea{
+                    anchors.fill: parent
+                    hoverEnabled: true
+                    onEntered: {
+                        parent.opacity = 1  // 直接调整图标透明度
+                    }
+                    onExited: {
+                        parent.opacity = minAndmax.imgopacity
+                    }
+                    onClicked: {
+                        console.log("弹出消息中心")
+
+                    }
+                }
+            }
+        }
+
+    }
+
+    //登录&设置
+    UserCommonSetting{
+        id:othersRo
         anchors.verticalCenter: minAndmax.verticalCenter
         anchors.right: minAndmax.left
         anchors.rightMargin: 10
         spacing: 10
-        Item{
-            height: 40
-            implicitWidth : loginRow.implicitWidth
-            anchors.verticalCenter: parent.verticalCenter
-            Row{
-                id:loginRow
-                anchors.verticalCenter: parent.verticalCenter
-                spacing: 8
-                Rectangle{
-                    id: userIconRec
-                    width: 40
-                    height:width
-                    radius: width/2
-                    color:"#eaedf1"
-                    Image {
-                        id: userlogo
-                        anchors.centerIn: userIconRec
-                        source: "qrc:/Resources/title/userlogo.svg"
-                        sourceSize.width: userIconRec
-                        .width-10
-                        fillMode :Image.PreserveAspectFit
-                    }
-                }
-                //未登录文本
-                Text{
-                    id:loadStateText
-                    text:"未登录"
-                    color:"#666d7e"
-                    font.pixelSize: 16
-                    font.family: "微软雅黑 Light"
-                    anchors.verticalCenter: userIconRec.verticalCenter
-                    MouseArea{
-                        anchors.fill: parent
-                        hoverEnabled: true
-                        onEntered: {
-                            loadStateText.color = "#000000"
-                        }
-                        onExited: {
-                            loadStateText.color = "#666d7e"
-                        }
-                    }
-                }
-                //会员标识
-                Item{
-                    height: userIconRec.height
-                    width: vipinfo.implicitWidth + vipRect.height+8 + bgBordRect.implicitWidth
-                    anchors.verticalCenter: parent.verticalCenter
-                    Rectangle{
-                        id:vipRect
-                        width:vipinfo.implicitWidth+vipRect.height+8
-                        height: 16
-                        radius: height/2
-                        color: "#cccccc"
-                        anchors.left : parent.left
-                        anchors.verticalCenter: parent.verticalCenter
-                        Label{
-                            id:vipinfo
-                            text:"VIP开通>"
-                            anchors.left: parent.left
-                            anchors.leftMargin:vipRect.height+8
-                            color: "#ececec"
-                            font.pixelSize: parent.height/2+1.5
-                            font.family: "PingFang SC, Microsoft YaHei, Hiragino Sans GB, Heiti SC, Noto Sans CJK SC, sans-serif"
-                            // font.weight: Font.Black
-                            font.bold: true
-                            anchors.verticalCenter: parent.verticalCenter
-                        }
-                    }
-                    Rectangle{
-                        id: bgBordRect
-                        width: vipRect.height +6
-                        height: width
-                        radius: width/2
-                        color: "#d8d8d8"
-                        border.width: 2
-                        border.color: "#f7f9fc"
-                        anchors.verticalCenter: parent.verticalCenter
-                        Rectangle{
-                            width: parent.width-2
-                            height: width
-                            radius: width/2
-                            color: "#dfdfde"
-                            border.width: 2
-                            border.color: "#d1d1d1"
-                            anchors.centerIn:  parent
-                            Rectangle{
-                                width: parent.width/2
-                                height: width
-                                radius: width/2
-                                color: "#dcdcdc"
-                                border.width: 1
-                                border.color: "#c0bebe"
-                                anchors.centerIn:  parent
-                                opacity:0.7
-
-                            }
-
-                        }
-                    }
-                }
-            }
-
-        }
-        //下拉登录
-        Image{
-            id:loginImg
-            source: "qrc:/Resources/title/upselect.svg"
-            sourceSize.width: parent.height/1.5
-            anchors.verticalCenter: parent.verticalCenter
-            fillMode :Image.PreserveAspectFit
-            opacity: 0.5
-
-
-            MouseArea{
-                anchors.fill: parent
-                hoverEnabled: true
-                onEntered: {
-                    parent.opacity = 1  // 直接调整图标透明度
-                }
-                onExited: {
-                    parent.opacity = 0.5
-                }
-                onClicked: {
-                    console.log("弹出登录窗口")
-
-                }
-            }
-        }
-        //消息中心
-        Image{
-            id:message
-            source: "qrc:/Resources/title/message.svg"
-            sourceSize.width: parent.height/1.7
-            anchors.verticalCenter: parent.verticalCenter
-            fillMode :Image.PreserveAspectFit
-            opacity: 0.5
-
-
-            MouseArea{
-                anchors.fill: parent
-                hoverEnabled: true
-                onEntered: {
-                    parent.opacity = 1  // 直接调整图标透明度
-                }
-                onExited: {
-                    parent.opacity = 0.5
-                }
-                onClicked: {
-                    console.log("弹出消息中心")
-
-                }
-            }
-        }
-        //设置
-        Image{
-            id:setting
-            source: "qrc:/Resources/title/setting.svg"
-            sourceSize.width: parent.height/1.7
-            anchors.verticalCenter: parent.verticalCenter
-            fillMode :Image.PreserveAspectFit
-            opacity: 0.5
-
-
-            MouseArea{
-                anchors.fill: parent
-                hoverEnabled: true
-                onEntered: {
-                    parent.opacity = 1  // 直接调整图标透明度
-                }
-                onExited: {
-                    parent.opacity = 0.5
-                }
-                onClicked: {
-                    console.log("弹出设置")
-
-                }
-            }
-        }
-        //皮肤
-        Image{
-            id:skin
-            source: "qrc:/Resources/title/skin.svg"
-            sourceSize.width: parent.height/1.9
-            anchors.verticalCenter: parent.verticalCenter
-            fillMode :Image.PreserveAspectFit
-            opacity: 0.5
-
-
-            MouseArea{
-                anchors.fill: parent
-                hoverEnabled: true
-                onEntered: {
-                    parent.opacity = 1  // 直接调整图标透明度
-                }
-                onExited: {
-                    parent.opacity = 0.5
-                }
-                onClicked: {
-                    console.log("弹出皮肤")
-
-                }
-            }
-        }
-        Rectangle{
-            height: 24
-            width:1
-            color:"#e2e5e9"
-            anchors.verticalCenter: parent.verticalCenter
-        }
-
     }
+
+
 
     //最大、最小、关闭
     MinAndMax{
