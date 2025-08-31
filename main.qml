@@ -10,6 +10,7 @@ WYYWindow {
     id: window
     width: 1280
     height: 960
+
     LeftPage{
         id:leftRect
         width: 204

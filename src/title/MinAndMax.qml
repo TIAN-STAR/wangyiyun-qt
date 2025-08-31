@@ -1,9 +1,10 @@
 import QtQuick 2.15
 import QtQuick.Window 2.15
+import "../commonUI"
 Item{
     id:menuRec
     implicitWidth : menurow.implicitWidth+0.02*window.width
-    property real imgopacity: 0.6
+
 
     Row{
         id: menurow
@@ -25,7 +26,7 @@ Item{
             anchors.verticalCenter: parent.verticalCenter
             fillMode :Image.PreserveAspectFit
             source: "qrc:/Resources/title/min.svg"
-            opacity: imgopacity
+            opacity: window.imgopacity
 
             MouseArea{
                 anchors.fill: parent
@@ -34,7 +35,7 @@ Item{
                     parent.opacity = 1  // 直接调整图标透明度
                 }
                 onExited: {
-                    parent.opacity = imgopacity
+                    parent.opacity = window.imgopacity
                 }
                 onClicked: {
                     window.showMinimized()
@@ -49,7 +50,7 @@ Item{
             anchors.verticalCenter: parent.verticalCenter
             fillMode :Image.PreserveAspectFit
             source: "qrc:/Resources/title/max_line.svg"
-            opacity: imgopacity
+            opacity: window.imgopacity
             MouseArea{
                 anchors.fill: parent
                 hoverEnabled: true
@@ -57,7 +58,7 @@ Item{
                     parent.opacity = 1  // 直接调整图标透明度
                 }
                 onExited: {
-                    parent.opacity = imgopacity
+                    parent.opacity = window.imgopacity
                 }
                 onClicked: {
 
@@ -82,7 +83,7 @@ Item{
             anchors.verticalCenter: parent.verticalCenter
             fillMode :Image.PreserveAspectFit
             source: "qrc:/Resources/title/close.svg"
-            opacity: imgopacity
+            opacity: window.imgopacity
             MouseArea{
                 anchors.fill: parent
                 hoverEnabled: true
@@ -90,7 +91,7 @@ Item{
                     parent.opacity = 1  // 直接调整图标透明度
                 }
                 onExited: {
-                    parent.opacity = imgopacity
+                    parent.opacity = window.imgopacity
                 }
                 onClicked: {
                     Qt.quit()

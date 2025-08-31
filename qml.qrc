@@ -7,5 +7,7 @@
         <file>src/commonUI/WYYWindow.qml</file>
         <file>src/title/MinAndMax.qml</file>
         <file>src/title/UserCommonSetting.qml</file>
+        <file>src/title/Search.qml</file>
+        <file>src/commonUI/WYYSearchBox.qml</file>
     </qresource>
 </RCC>

@@ -1,6 +1,6 @@
 import QtQuick 2.15
 import QtQuick.Controls 2.15
-
+import "../commonUI"
 //登录
 Row{
 
@@ -113,7 +113,7 @@ Row{
         sourceSize.width: parent.height/1.5
         anchors.verticalCenter: parent.verticalCenter
         fillMode :Image.PreserveAspectFit
-        opacity: minAndmax.imgopacity
+        opacity: window.imgopacity
 
 
         MouseArea{
@@ -123,7 +123,7 @@ Row{
                 parent.opacity = 1  // 直接调整图标透明度
             }
             onExited: {
-                parent.opacity = minAndmax.imgopacity
+                parent.opacity = window.imgopacity
             }
             onClicked: {
                 console.log("弹出登录窗口")
@@ -138,7 +138,7 @@ Row{
         sourceSize.width: parent.height/1.7
         anchors.verticalCenter: parent.verticalCenter
         fillMode :Image.PreserveAspectFit
-        opacity: minAndmax.imgopacity
+        opacity: window.imgopacity
 
 
         MouseArea{
@@ -148,7 +148,7 @@ Row{
                 parent.opacity = 1  // 直接调整图标透明度
             }
             onExited: {
-                parent.opacity = minAndmax.imgopacity
+                parent.opacity = window.imgopacity
             }
             onClicked: {
                 console.log("弹出消息中心")
@@ -163,7 +163,7 @@ Row{
         sourceSize.width: parent.height/1.7
         anchors.verticalCenter: parent.verticalCenter
         fillMode :Image.PreserveAspectFit
-        opacity: minAndmax.imgopacity
+        opacity: window.imgopacity
 
 
         MouseArea{
@@ -173,7 +173,7 @@ Row{
                 parent.opacity = 1  // 直接调整图标透明度
             }
             onExited: {
-                parent.opacity = minAndmax.imgopacity
+                parent.opacity = window.imgopacity
             }
             onClicked: {
                 console.log("弹出设置")
@@ -188,7 +188,7 @@ Row{
         sourceSize.width: parent.height/1.9
         anchors.verticalCenter: parent.verticalCenter
         fillMode :Image.PreserveAspectFit
-        opacity: minAndmax.imgopacity
+        opacity: window.imgopacity
 
 
         MouseArea{
@@ -198,7 +198,7 @@ Row{
                 parent.opacity = 1  // 直接调整图标透明度
             }
             onExited: {
-                parent.opacity = minAndmax.imgopacity
+                parent.opacity = window.imgopacity
             }
             onClicked: {
                 console.log("弹出皮肤")

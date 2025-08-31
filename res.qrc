@@ -17,5 +17,7 @@
         <file>Resources/title/upselect.svg</file>
         <file>Resources/title/linsen1.svg</file>
         <file>Resources/title/fire.svg</file>
+        <file>Resources/title/delete.svg</file>
+        <file>Resources/title/delete_min.svg</file>
     </qresource>
 </RCC>
