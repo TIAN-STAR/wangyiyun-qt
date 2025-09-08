@@ -34,6 +34,9 @@ WYYWindow {
         anchors.left: parent.left
         anchors.bottom: parent.bottom
         anchors.right: parent.right
+        anchors.leftMargin: 1
+        anchors.bottomMargin: 1
+        anchors.rightMargin: 1
         gradient: Gradient{
             orientation:Gradient.Horizontal
             GradientStop { position: 0.0;color: "#fcfcfd"}

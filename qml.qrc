@@ -9,5 +9,6 @@
         <file>src/title/UserCommonSetting.qml</file>
         <file>src/title/Search.qml</file>
         <file>src/commonUI/WYYSearchBox.qml</file>
+        <file>src/commonUI/RoundedRectangle.qml</file>
     </qresource>
 </RCC>

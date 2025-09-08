@@ -19,5 +19,6 @@
         <file>Resources/title/fire.svg</file>
         <file>Resources/title/delete.svg</file>
         <file>Resources/title/delete_min.svg</file>
+        <file>Resources/title/OpenOther.svg</file>
     </qresource>
 </RCC>
